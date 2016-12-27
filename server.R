@@ -6,42 +6,46 @@ library(magrittr)
 library(ggplot2)
 library(stringr)
 
-groups <- c("PSG"="A", "ARS"="A",
-            "NAP"="B", "BEN"="B", "BES"="B",
-            "BAR"="C", "MC"="C",
-            "ATL"="D", "BAY"="D",
-            "MON"="E", "B04"="E",
-            "BVB"="F", "RM"="F",
-            "LEI"="G", "POR"="G", "COP"="G",
-            "JUV"="H", "SEV"="H", "OL"="H")
+groups <- c(
+            "PSG" = "A", "ARS" = "A",
+            "NAP" = "B", "BEN" = "B", "BES" = "B",
+            "BAR" = "C", "MC"  = "C",
+            "ATL" = "D", "BAY" = "D",
+            "MON" = "E", "B04" = "E",
+            "BVB" = "F", "RM"  = "F",
+            "LEI" = "G", "POR" = "G", "COP" = "G",
+            "JUV" = "H", "SEV" = "H", "OL"  = "H"
+            )
 
-association <- c("PSG"="FRA", "ARS"="ENG",
-                 "NAP"="ITA", "BEN"="POR", "BES"="TUR",
-                 "BAR"="ESP", "MC"="ENG",
-                 "ATL"="ESP", "BAY"="GER",
-                 "MON"="FRA", "B04"="GER",
-                 "BVB"="GER", "RM"="ESP",
-                 "LEI"="ENG", "POR"="POR", "COP"="DEN",
-                 "JUV"="ITA", "SEV"="ESP", "OL"="FRA")
+association <- c(
+                 "PSG" = "FRA", "ARS" = "ENG",
+                 "NAP" = "ITA", "BEN" = "POR", "BES" = "TUR",
+                 "BAR" = "ESP", "MC"  = "ENG",
+                 "ATL" = "ESP", "BAY" = "GER",
+                 "MON" = "FRA", "B04" = "GER",
+                 "BVB" = "GER", "RM"  = "ESP",
+                 "LEI" = "ENG", "POR" = "POR", "COP" = "DEN",
+                 "JUV" = "ITA", "SEV" = "ESP", "OL"  = "FRA"
+                 )
 
 teams <- tibble::tribble(
   ~short, ~name, ~group, ~position, ~association,
-  "PSG", "Paris Saint-Germain", "A", 2, "FRA",
-  "ARS", "Arsenal", "A", 1, "ENG",
-  "NAP", "Napoli", "B", 1, "ITA",
-  "BEN", "Benfica", "B", 2, "POR",
-  "BAR", "Barcelona", "C", 1, "ESP",
-  "MC", "Manchester City", "C", 2, "ENG",
-  "ATL", "Atletico Madrid", "D", 1, "ESP",
-  "BAY", "Bayern Munich", "D", 2, "GER",
-  "MON", "Monaco","E", 1, "FRA",
-  "B04", "Bayer Leverkusen","E", 2, "GER",
-  "BVB", "Borussia Dortmund","F", 1, "GER",
-  "RM", "Real Madrid","F", 2, "ESP",
-  "LEI", "Leicester City","G", 1, "ENG",
-  "POR", "Porto","G", 2, "POR",
-  "JUV", "Juventus","H", 1, "ITA",
-  "SEV", "Sevilla","H", 2, "ESP"
+  "PSG", "Paris Saint-Germain",   "A",  2,  "FRA",
+  "ARS", "Arsenal",               "A",  1,  "ENG",
+  "NAP", "Napoli",                "B",  1,  "ITA",
+  "BEN", "Benfica",               "B",  2,  "POR",
+  "BAR", "Barcelona",             "C",  1,  "ESP",
+  "MC",  "Manchester City",       "C",  2,  "ENG",
+  "ATL", "Atletico Madrid",       "D",  1,  "ESP",
+  "BAY", "Bayern Munich",         "D",  2,  "GER",
+  "MON", "Monaco",                "E",  1,  "FRA",
+  "B04", "Bayer Leverkusen",      "E",  2,  "GER",
+  "BVB", "Borussia Dortmund",     "F",  1,  "GER",
+  "RM",  "Real Madrid",           "F",  2,  "ESP",
+  "LEI", "Leicester City",        "G",  1,  "ENG",
+  "POR", "Porto",                 "G",  2,  "POR",
+  "JUV", "Juventus",              "H",  1,  "ITA",
+  "SEV", "Sevilla",               "H",  2,  "ESP"
 ) 
 
 short_long <- teams$name
@@ -54,9 +58,7 @@ change_to_long <- function(short){
     map_df(~data_frame(home = .x[1], away=.x[2])) %>% 
     mutate(vs = "-") %>%
     select(home, vs, away)
-    #mutate_all(format) %>% 
-    #transmute(Match = paste(home, away, sep = " - ")) 
-}
+    }
 
 teams.first <- filter(teams, position == 1) %>% mutate(dummy = 1)
 teams.second <- filter(teams, position == 2) %>% mutate(dummy = 1)
