@@ -50,7 +50,7 @@ shinyUI(fluidPage(
       
     ),
     
-    # Show a plot of the generated distribution
+    # Show help texts and your changing plot
     mainPanel(
       
       helpText("To ensure a fast calculation there are some simplifications in my algorithm which result in minor
