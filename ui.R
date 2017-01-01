@@ -66,15 +66,11 @@ shinyUI(fluidPage(
       #         href = "http://www.zeit.de/sport/2016-12/champions-league-auslosung-achtelfinale-fc-bayern-borussia-dortmund/komplettansicht",
       #         target = "_blank")),
       br(),
-      #tableOutput("table")
       downloadButton('downloadPlot', 'Save as PNG'),
       plotOutput('view'),
       br(),
       wellPanel(h4("Your draw:"),
-                #textOutput('games'),
                 tableOutput("table"))
-      
-      #downloadLink('downloadData', 'Download table as PNG')
       )
   )
 ))
