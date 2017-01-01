@@ -33,7 +33,7 @@ shinyUI(fluidPage(
       helpText("Draw match after match and watch how the probabilities change."),
       
       selectizeInput(
-        'game1', 'Match 1', choices = NULL),
+        'game1', 'Match 1', choices = NULL),  # choices are filled interactively
       selectizeInput(
         'game2', 'Match 2', choices = NULL),
       selectizeInput(
@@ -66,15 +66,11 @@ shinyUI(fluidPage(
       #         href = "http://www.zeit.de/sport/2016-12/champions-league-auslosung-achtelfinale-fc-bayern-borussia-dortmund/komplettansicht",
       #         target = "_blank")),
       br(),
-      #tableOutput("table")
       downloadButton('downloadPlot', 'Save as PNG'),
       plotOutput('view'),
       br(),
       wellPanel(h4("Your draw:"),
-                #textOutput('games'),
                 tableOutput("table"))
-      
-      #downloadLink('downloadData', 'Download table as PNG')
       )
   )
 ))
