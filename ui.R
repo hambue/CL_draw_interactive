@@ -3,7 +3,7 @@ library(shinyjs)
 
 
 shinyUI(fluidPage(
-  useShinyjs(),
+  useShinyjs(),  # for the use of inline css
   shinyjs::inlineCSS(list(body = "padding-top: 70px;")), #due to fixed navbar
   
   HTML('<nav class="navbar navbar-inverse navbar-fixed-top">
