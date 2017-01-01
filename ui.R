@@ -27,7 +27,7 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("CL Last 16 Draw Probabilities 2016/17"),
   
-  # Sidebar with a slider input for number of bins
+  # Sidebar with 7 games
   sidebarLayout(
     sidebarPanel(
       helpText("Draw match after match and watch how the probabilities change."),
