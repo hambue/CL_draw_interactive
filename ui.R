@@ -33,7 +33,7 @@ shinyUI(fluidPage(
       helpText("Draw match after match and watch how the probabilities change."),
       
       selectizeInput(
-        'game1', 'Match 1', choices = NULL),
+        'game1', 'Match 1', choices = NULL),  # choices are filled interactively
       selectizeInput(
         'game2', 'Match 2', choices = NULL),
       selectizeInput(
