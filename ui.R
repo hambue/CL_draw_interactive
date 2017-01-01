@@ -24,7 +24,7 @@ shinyUI(fluidPage(
        </div>
        </nav>'),
   
-  # Application title blabla
+  # Application title
   titlePanel("CL Last 16 Draw Probabilities 2016/17"),
   
   # Sidebar with 7 games
