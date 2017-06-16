@@ -2,4 +2,4 @@
 ## TODO: 
 - Documentation
 - Preparations for season 17/18
-- Publish app to shinapps.io
+- Publish app to shinyapps.io
