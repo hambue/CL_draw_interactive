@@ -6,3 +6,6 @@
 
 # RStudio files
 .Rproj.user
+
+# temp. vim files
+*~
